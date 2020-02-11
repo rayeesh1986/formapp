@@ -33,12 +33,6 @@
   flex-basis: auto;
 }
 
-
-.navbar-expand-lg .navbar-collapse {
-  display: flex !important;
-  flex-basis: auto;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
