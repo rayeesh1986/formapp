@@ -1,41 +1,44 @@
-import React, { Component } from 'react';
-import {Link, Route} from "react-router-dom";
+import React, { Component } from "react";
+import { Switch, Route, NavLink, Link, Redirect } from "react-router-dom";
 
+import { productRoutes } from "./routers";
 
-
+const RouteWithSubRoutes = route => {
+  console.log("route", route);
+  return (
+    <Route
+      exact={route.exact}
+      path={route.path}
+      render={props => <route.component {...props} />}
+    />
+  );
+};
 
 class Product extends Component {
-    state = {  }
-    
-    
-    
-    
-    render() { 
-/* 
+  state = {};
+
+  render() {
+    /* 
         const RouteWithSubRoutes = (route) => (
             <Route path={route.path} render={(props) => (
                 <route.component {...props} routes={route.routes}/>
             )}/>
         ) */
 
-       
-
-
-        
-        return ( 
-            <React.Fragment>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h1>Product Component</h1>
-                            <Link to="/products/detail">Product details</Link>
-                            <Link to="/products/listing">Product Listing</Link>
-                           {/* 
+    return (
+      <React.Fragment>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h1>Product Component</h1>
+              <Link to="/products/detail">Product details</Link>
+              <Link to="/products/listing">Product Listing</Link>
+              {/* 
                             {routes.map(route =>
                                 <RouteWithSubRoutes key={route.path} />
                             )} */}
-                   
-                            {/* <table className="table">
+
+              {/* <table className="table">
                                 <thead>
                                     <tr>
                                     <th scope="col">List</th>
@@ -56,12 +59,17 @@ class Product extends Component {
                                     )}
                                 </tbody> 
                             </table>*/}
-                        </div>
-                    </div>
-                </div>
-            </React.Fragment>
-         );
-    }
+            </div>
+          </div>
+        </div>
+        <Switch>
+          {productRoutes.map(route => (
+            <RouteWithSubRoutes key={route.path} {...route} />
+          ))}
+        </Switch>
+      </React.Fragment>
+    );
+  }
 }
- 
+
 export default Product;
