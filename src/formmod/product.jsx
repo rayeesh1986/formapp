@@ -19,6 +19,9 @@ class Product extends Component {
         ) */
 
        
+
+
+        
         return ( 
             <React.Fragment>
                 <div className="container">
