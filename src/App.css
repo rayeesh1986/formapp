@@ -26,7 +26,11 @@
 
 .App-link {
   color: #61dafb;
-  
+}
+
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
 }
 
 @keyframes App-logo-spin {
