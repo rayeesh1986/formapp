@@ -1,0 +1,5 @@
+<Switch>
+          {productRoutes.map(route => (
+            <RouteWithSubRoutes key={route.path} {...route} />
+          ))}
+        </Switch>
